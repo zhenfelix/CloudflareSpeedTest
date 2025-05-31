@@ -22,12 +22,14 @@ const (
 	defaultDisableDownload         = false
 	defaultTestNum                 = 10
 	defaultMinSpeed        float64 = 0.0
+	defaultDownloadVerbose         = 0
 )
 
 var (
-	URL     = defaultURL
-	Timeout = defaultTimeout
-	Disable = defaultDisableDownload
+	URL             = defaultURL
+	Timeout         = defaultTimeout
+	Disable         = defaultDisableDownload
+	DownloadVerbose = defaultDownloadVerbose
 
 	TestCount = defaultTestNum
 	MinSpeed  = defaultMinSpeed
@@ -80,7 +82,10 @@ func TestDownloadSpeed(ipSet utils.PingDelaySet) (speedSet utils.DownloadSpeedSe
 		if speed >= MinSpeed*1024*1024 {
 			bar.Grow(1, "")
 			speedSet = append(speedSet, ipSet[i]) // 高于下载速度下限时，添加到新数组中
-			if len(speedSet) == TestCount {       // 凑够满足条件的 IP 时（下载测速数量 -dn），就跳出循环
+			if DownloadVerbose > 0 {              // 如果开启了下载测速打印
+				speedSet[len(speedSet)-1:].Print() // 打印当前下载测速结果
+			}
+			if len(speedSet) == TestCount { // 凑够满足条件的 IP 时（下载测速数量 -dn），就跳出循环
 				break
 			}
 		}

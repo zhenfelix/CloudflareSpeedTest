@@ -80,6 +80,7 @@ https://github.com/XIU2/CloudflareSpeedTest
 	flag.IntVar(&task.TestCount, "dn", 10, "下载测速数量")
 	flag.IntVar(&downloadTime, "dt", 10, "下载测速时间")
 	flag.IntVar(&task.TCPPort, "tp", 443, "指定测速端口")
+	flag.IntVar(&task.DownloadVerbose, "dv", 0, "一边下载一边打印下载进度，0 不打印，1 打印下载速度")
 	flag.StringVar(&task.URL, "url", "https://cf.xiu2.xyz/url", "指定测速地址")
 
 	flag.BoolVar(&task.Httping, "httping", false, "切换测速模式")

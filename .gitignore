@@ -1,4 +1,6 @@
 dist
 Releases
 *.exe
+CloudflareSpeedTest
 *.csv
+.*.txt
