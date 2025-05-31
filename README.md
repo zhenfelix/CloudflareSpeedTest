@@ -163,6 +163,8 @@ https://github.com/XIU2/CloudflareSpeedTest
         指定测速端口；延迟测速/下载测速时使用的端口；(默认 443 端口)
     -url https://cf.xiu2.xyz/url
         指定测速地址；延迟测速(HTTPing)/下载测速时使用的地址，默认地址不保证可用性，建议自建；
+    -dv 0
+        开启一边下载一边打印下载速度，方便实时看到最新下载节点的下载速度；(默认 0 关闭)
 
     -httping
         切换测速模式；延迟测速模式改为 HTTP 协议，所用测试地址为 [-url] 参数；(默认 TCPing)
